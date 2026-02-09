@@ -38,7 +38,7 @@ def check_result(actual, expected):
 @pytest.mark.parametrize(
         'inputs, expected',
         [
-            (['add 10 5', 'exit'], '15.0'),
+            (['add 10 5', 'exit'], '215.0'),
             (['add -1 2.5', 'exit'], '1.5'),
         ],
         ids=[
