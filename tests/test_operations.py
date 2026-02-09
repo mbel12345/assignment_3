@@ -151,7 +151,7 @@ def test_division_success(a: Number, b: Number, expected: Number):
     actual = Operations.division(a, b)
     assert actual == expected, f'Actual = {actual} does not match expected = {expected}'
 
-# division by zero
+# division by 0
 @pytest.mark.parametrize(
     'a, b',
     [

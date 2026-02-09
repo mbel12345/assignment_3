@@ -5,7 +5,6 @@ from io import StringIO
 
 from app.calculator import Calculator
 
-
 # Full testing of the operations is covered in test_operations.py.
 # So, the parametrized testing here (test_calculator.py) is not intended to cover all cases, but rather demonstrate parametrized testing as a concept.
 # Testing in here (test_calculator.py) is primarily for testing the REPL structure and user interactions.
@@ -25,6 +24,8 @@ def run_calc(monkeypatch, capsys, user_inputs):
     return captured
 
 def check_result(actual, expected):
+
+    # Check that the calculator gives a welcome message, an answer/error (expected) for user's question, and an exit message.
 
     actual = actual.strip().split('\n')
     assert len(actual) == 3, f'Result is expected to have 3 lines, got:\n{actual}\n{'-'*50}'
@@ -91,6 +92,7 @@ def test_multiplication(monkeypatch, capsys, inputs, expected):
     actual = run_calc(monkeypatch, capsys, inputs)
     check_result(actual, f'Result: {expected}')
 
+# division
 @pytest.mark.parametrize(
         'inputs, expected',
         [
@@ -169,7 +171,7 @@ def test_invalid_input_format(monkeypatch, capsys, inputs):
     actual = run_calc(monkeypatch, capsys, inputs)
     check_result(actual, 'Invalid input. Please follow the format: <operation> <number> <number>')
 
-# division by zero
+# division by 0
 @pytest.mark.parametrize(
         'inputs',
         [
