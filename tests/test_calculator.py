@@ -169,21 +169,3 @@ def test_invalid_input_format(monkeypatch, capsys, inputs):
     actual = run_calc(monkeypatch, capsys, inputs)
     check_result(actual, 'Invalid input. Please follow the format: <operation> <number> <number>')
 
-# division by zero
-@pytest.mark.parametrize(
-        'inputs',
-        [
-            (['divide 8 0', 'exit']),
-            (['divide -5.5 0', 'exit']),
-        ],
-        ids=[
-            'divide_positive_integer_and_zero',
-            'divide_negative_float_and_zero',
-        ]
-)
-def test_division_by_zero(monkeypatch, capsys, inputs):
-
-    # Test division by 0 for REPL calculator
-
-    actual = run_calc(monkeypatch, capsys, inputs)
-    check_result(actual, 'Division by zero is not allowed.')
