@@ -22,6 +22,7 @@ class Calculator:
                 parts = user_input.split()
                 if len(parts) != 3:
                     print('Invalid input. Please follow the format: <operation> <number> <number>')
+                    continue
                 operation = parts[0]
                 num_1 = float(parts[1])
                 num_2 = float(parts[2])
